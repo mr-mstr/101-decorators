@@ -27,7 +27,7 @@ We hope that this project will be a useful and informative resource for anyone l
 Decorators can be classified in several ways, based on their purpose or the way in which they are applied. Some common types of decorators include:
 
 ### Function Decorators: 
-These decorators are applied to functions and modify their behavior. Examples include @log to log function calls, or @cache to cache the results of a function for improved performance. 
+These decorators are applied to functions and modify their behavior. Examples include `@log` to log function calls, or `@cache` to cache the results of a function for improved performance. 
 - Here is an example of a function decorator that prints a message before and after the decorated function is called:
 
           def print_message(func):
@@ -53,7 +53,7 @@ These decorators are applied to functions and modify their behavior. Examples in
 
 
 ### Method Decorators: 
-These decorators are applied to methods of a class and can modify their behavior within the context of the class. Examples include @classmethod to define a method that operates on the class itself, rather than an instance.
+These decorators are applied to methods of a class and can modify their behavior within the context of the class. Examples include `@classmethod` to define a method that operates on the class itself, rather than an instance.
 
   - Here is an example of a method decorator that prints a message before and after the decorated method is called:
 
@@ -80,11 +80,11 @@ These decorators are applied to methods of a class and can modify their behavior
           Before method call
           After method call
           
-    In this example, the @print_message decorator is applied to the add method of the ExampleClass class. When the add method is called, the wrapper function is executed first, which prints the message "Before method call" and then calls the add method. After the add method has finished executing, the message "After method call" is printed.<br>
+    In this example, the `@print_message` decorator is applied to the add method of the ExampleClass class. When the add method is called, the wrapper function is executed first, which prints the message "Before method call" and then calls the add method. After the add method has finished executing, the message "After method call" is printed.<br>
 
 
 ### Class Decorators: 
-These decorators are applied to classes and can modify their behavior or add additional functionality. Examples include @singleton to ensure a class only has a single instance, or @register to register a class as a plugin or extension.
+These decorators are applied to classes and can modify their behavior or add additional functionality. Examples include `@singleton` to ensure a class only has a single instance, or @register to register a class as a plugin or extension.
   - Here is an example of a class decorator that adds a class attribute to the decorated class:
     
         def add_attribute(cls):
@@ -103,7 +103,7 @@ These decorators are applied to classes and can modify their behavior or add add
         
 
 ### Property Decorators: 
-These decorators are applied to properties of a class and can modify how the property is accessed or set. Examples include @cached_property to cache the results of a property getter for improved performance, or @restricted to restrict access to the property.
+These decorators are applied to properties of a class and can modify how the property is accessed or set. Examples include `@cached_property` to cache the results of a property getter for improved performance, or @restricted to restrict access to the property.
 - Here is an example of a property decorator that logs a message when the property is accessed:
             
        def log_access(method):
@@ -125,7 +125,7 @@ These decorators are applied to properties of a class and can modify how the pro
        def x(self, value):
            self._x = value
         
-  In this example, the x property has a getter method decorated with the log_access decorator. When the x property is accessed, the decorator will log a message before returning the value of the property. The setter method for the x property is also decorated with the log_access decorator, so it will log a message whenever the value of the x property is modified.<br>
+  In this example, the `x` property has a getter method decorated with the `log_access` decorator. When the `x` property is accessed, the decorator will log a message before returning the value of the property. The setter method for the `x` property is also decorated with the `log_access` decorator, so it will log a message whenever the value of the `x` property is modified.<br>
 
 
 - Here is another example of a property decorator that enforces a minimum and maximum value for the property:
@@ -154,14 +154,14 @@ These decorators are applied to properties of a class and can modify how the pro
           def x(self, value):
               self._x = value
 
-  In this example, the setter method for the x property is decorated with the min_max decorator, which enforces a minimum value of 0 and a maximum value of 100 for the x property. If the value being set is outside of this range, the decorator will raise a ValueError.
+  In this example, the setter method for the `x` property is decorated with the `@min_max` decorator, which enforces a minimum value of 0 and a maximum value of 100 for the `x` property. If the value being set is outside of this range, the decorator will raise a `ValueError`.
 
 
 ## Debugging Decorators
 
 When working with decorators, it can be helpful to use tools and techniques that allow you to introspect and debug them. Here are some approaches you can use to debug decorators in Python:
 
-* Use the functools.wraps decorator: When you define a decorator, the decorated function loses its original identity, including its name and docstring. You can use the functools.wraps decorator to preserve the decorated function's identity and make it easier to introspect and debug. Here is an example of how to use functools.wraps:
+* Use the `functools.wraps` decorator: When you define a decorator, the decorated function loses its original identity, including its name and docstring. You can use the `functools.wraps` decorator to preserve the decorated function's identity and make it easier to introspect and debug. Here is an example of how to use `functools.wraps`:
 
         from functools import wraps
 
@@ -173,7 +173,7 @@ When working with decorators, it can be helpful to use tools and techniques that
                 print("!")
             return wrapper
 
-* Use the __name__ attribute: You can use the __name__ attribute to access the name of a function, even if it has been decorated. For example:
+* Use the `__name__` attribute: You can use the `__name__` attribute to access the name of a function, even if it has been decorated. For example:
 
         def greet(func):
             def wrapper(name):
@@ -188,7 +188,7 @@ When working with decorators, it can be helpful to use tools and techniques that
             
         print(say_hello.__name__)  # Output: wrapper
 
-* Use the inspect module: The inspect module provides several functions that allow you to introspect the properties of objects in Python, including functions. For example, you can use the inspect.signature function to access the signature (i.e., the arguments and return type) of a function, even if it has been decorated:
+* Use the `inspect` module: The `inspect` module provides several functions that allow you to introspect the properties of objects in Python, including functions. For example, you can use the `inspect.signature` function to access the signature (i.e., the arguments and return type) of a function, even if it has been decorated:
 
         import inspect
 
@@ -207,15 +207,13 @@ When working with decorators, it can be helpful to use tools and techniques that
         print(sig)  # Output: (name)
 
 
-It is important to make sure that decorators do not interfere with the traceback information when an error occurs. A traceback is the record of the sequence of function calls that led to an error, and it is an essential tool for debugging and troubleshooting code. If a decorator hides or modifies the traceback information, it can make it much more difficult to understand and fix the root cause of the error.
+It is important to make sure that decorators do not interfere with the traceback information when an error occurs. A traceback is the record of the sequence of function calls that led to an error, and it is an essential tool for debugging and troubleshooting code. If a decorator hides or modifies the traceback information, it can make it much more difficult to understand and fix the root cause of the error. To avoid this problem, you should make sure that your decorators do not interfere with the traceback information. Here are some best practices to follow:
 
-To avoid this problem, you should make sure that your decorators do not interfere with the traceback information. Here are some best practices to follow:
-
-* Use the functools.wraps decorator: As mentioned earlier, the functools.wraps decorator preserves the decorated function's identity and makes it easier to introspect and debug. This includes preserving the function's traceback information.
+* Use the `functools.wraps` decorator: As mentioned earlier, the `functools.wraps` decorator preserves the decorated function's identity and makes it easier to introspect and debug. This includes preserving the function's traceback information.
 
 * Do not modify the decorated function's code: Avoid making changes to the decorated function's code that could affect its traceback information. For example, do not add or remove lines of code, or change the function's arguments or return type.
 
-* Use the raise statement to propagate errors: When an error occurs in the decorated function, use the raise statement to propagate the error to the caller, rather than handling the error within the decorator. This will preserve the original traceback information.
+* Use the `raise` statement to propagate errors: When an error occurs in the decorated function, use the `raise` statement to propagate the error to the caller, rather than handling the error within the decorator. This will preserve the original traceback information.
 
 By following these best practices, you can ensure that your decorators do not interfere with the traceback information and make it easier to debug and troubleshoot errors in your code.<br>
 
