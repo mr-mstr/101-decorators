@@ -207,7 +207,7 @@ When working with decorators, it can be helpful to use tools and techniques that
         print(sig)  # Output: (name)
 
 
-It is important to make sure that decorators do not interfere with the traceback information when an error occurs. A traceback is the record of the sequence of function calls that led to an error, and it is an essential tool for debugging and troubleshooting code. If a decorator hides or modifies the traceback information, it can make it much more difficult to understand and fix the root cause of the error. To avoid this problem, you should make sure that your decorators do not interfere with the traceback information. Here are some best practices to follow:
+It is important to make sure that decorators do not interfere with the traceback information when an error occurs. A traceback is the record of the sequence of function calls that led to an error, and it is an essential tool for debugging and troubleshooting code. If a decorator hides or modifies the traceback information, it can make it much more difficult to understand and fix the root cause of the error. Here are some best practices to follow:
 
 * Use the `@functools.wraps` decorator: As mentioned earlier, the `@functools.wraps` decorator preserves the decorated function's identity and makes it easier to introspect and debug. This includes preserving the function's traceback information.
 
