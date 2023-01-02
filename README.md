@@ -155,6 +155,70 @@ These decorators are applied to properties of a class and can modify how the pro
               self._x = value
 
   In this example, the setter method for the x property is decorated with the min_max decorator, which enforces a minimum value of 0 and a maximum value of 100 for the x property. If the value being set is outside of this range, the decorator will raise a ValueError.
+
+
+## Debugging Decorators
+
+When working with decorators, it can be helpful to use tools and techniques that allow you to introspect and debug them. Here are some approaches you can use to debug decorators in Python:
+
+* Use the functools.wraps decorator: When you define a decorator, the decorated function loses its original identity, including its name and docstring. You can use the functools.wraps decorator to preserve the decorated function's identity and make it easier to introspect and debug. Here is an example of how to use functools.wraps:
+
+        from functools import wraps
+
+        def greet(func):
+            @wraps(func)
+            def wrapper(name):
+                print(f"Hello, {name}")
+                func()
+                print("!")
+            return wrapper
+
+* Use the __name__ attribute: You can use the __name__ attribute to access the name of a function, even if it has been decorated. For example:
+
+        def greet(func):
+            def wrapper(name):
+                print(f"Hello, {name}")
+                func()
+                print("!")
+            return wrapper
+
+        @greet
+        def say_hello():
+            print('hello')
+            
+        print(say_hello.__name__)  # Output: wrapper
+
+* Use the inspect module: The inspect module provides several functions that allow you to introspect the properties of objects in Python, including functions. For example, you can use the inspect.signature function to access the signature (i.e., the arguments and return type) of a function, even if it has been decorated:
+
+        import inspect
+
+        def greet(func):
+            def wrapper(name):
+                print(f"Hello, {name}")
+                func()
+                print("!")
+            return wrapper
+
+        @greet
+        def say_hello():
+            print('hello')
+            
+        sig = inspect.signature(say_hello)
+        print(sig)  # Output: (name)
+
+
+It is important to make sure that decorators do not interfere with the traceback information when an error occurs. A traceback is the record of the sequence of function calls that led to an error, and it is an essential tool for debugging and troubleshooting code. If a decorator hides or modifies the traceback information, it can make it much more difficult to understand and fix the root cause of the error.
+
+To avoid this problem, you should make sure that your decorators do not interfere with the traceback information. Here are some best practices to follow:
+
+* Use the functools.wraps decorator: As mentioned earlier, the functools.wraps decorator preserves the decorated function's identity and makes it easier to introspect and debug. This includes preserving the function's traceback information.
+
+* Do not modify the decorated function's code: Avoid making changes to the decorated function's code that could affect its traceback information. For example, do not add or remove lines of code, or change the function's arguments or return type.
+
+* Use the raise statement to propagate errors: When an error occurs in the decorated function, use the raise statement to propagate the error to the caller, rather than handling the error within the decorator. This will preserve the original traceback information.
+
+By following these best practices, you can ensure that your decorators do not interfere with the traceback information and make it easier to debug and troubleshoot errors in your code.<br>
+
 ## Specific Examples
 
 In addition to the general categories listed above, this project will also include specific examples of decorators for common use cases. These may include:
