@@ -1,7 +1,9 @@
 # 101 Decorators for Python
 
 A comprehensive guide to the usage and implementation of decorators in Python.
-Table of Contents
+
+
+## Table of Contents
 
 * Introduction to Decorators
 * Classification and Examples
@@ -43,12 +45,12 @@ These decorators are applied to functions and modify their behavior. Examples in
           result = add(3, 4)
           print(result)
 
-        Output: 
+    Output: 
     
-            Before function call
-            After function call
-            7
-<br>
+        Before function call
+        After function call
+        7
+
 
 ### Method Decorators: 
 These decorators are applied to methods of a class and can modify their behavior within the context of the class. Examples include @classmethod to define a method that operates on the class itself, rather than an instance.
