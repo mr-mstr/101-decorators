@@ -125,7 +125,7 @@ These decorators are applied to properties of a class and can modify how the pro
        def x(self, value):
            self._x = value
         
-  In this example, the `x` property has a getter method decorated with the `log_access` decorator. When the `x` property is accessed, the decorator will log a message before returning the value of the property. The setter method for the `x` property is also decorated with the `log_access` decorator, so it will log a message whenever the value of the `x` property is modified.<br>
+  In this example, the `x` property has a getter method decorated with the `@log_access` decorator. When the `x` property is accessed, the decorator will log a message before returning the value of the property. The setter method for the `x` property is also decorated with the `@log_access` decorator, so it will log a message whenever the value of the `x` property is modified.<br>
 
 
 - Here is another example of a property decorator that enforces a minimum and maximum value for the property:
@@ -161,7 +161,7 @@ These decorators are applied to properties of a class and can modify how the pro
 
 When working with decorators, it can be helpful to use tools and techniques that allow you to introspect and debug them. Here are some approaches you can use to debug decorators in Python:
 
-* Use the `functools.wraps` decorator: When you define a decorator, the decorated function loses its original identity, including its name and docstring. You can use the `functools.wraps` decorator to preserve the decorated function's identity and make it easier to introspect and debug. Here is an example of how to use `functools.wraps`:
+* Use the `@functools.wraps` decorator: When you define a decorator, the decorated function loses its original identity, including its name and docstring. You can use the `@functools.wraps` decorator to preserve the decorated function's identity and make it easier to introspect and debug. Here is an example of how to use `functools.wraps`:
 
         from functools import wraps
 
@@ -209,7 +209,7 @@ When working with decorators, it can be helpful to use tools and techniques that
 
 It is important to make sure that decorators do not interfere with the traceback information when an error occurs. A traceback is the record of the sequence of function calls that led to an error, and it is an essential tool for debugging and troubleshooting code. If a decorator hides or modifies the traceback information, it can make it much more difficult to understand and fix the root cause of the error. To avoid this problem, you should make sure that your decorators do not interfere with the traceback information. Here are some best practices to follow:
 
-* Use the `functools.wraps` decorator: As mentioned earlier, the `functools.wraps` decorator preserves the decorated function's identity and makes it easier to introspect and debug. This includes preserving the function's traceback information.
+* Use the `@functools.wraps` decorator: As mentioned earlier, the `@functools.wraps` decorator preserves the decorated function's identity and makes it easier to introspect and debug. This includes preserving the function's traceback information.
 
 * Do not modify the decorated function's code: Avoid making changes to the decorated function's code that could affect its traceback information. For example, do not add or remove lines of code, or change the function's arguments or return type.
 
