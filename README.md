@@ -235,3 +235,26 @@ Decorators are used extensively in popular libraries and modules, such as Django
 * Asyncio and threading both use decorators to specify which functions should be run concurrently. For example, the @asyncio.coroutine decorator is used to specify that a function should be run asynchronously, while the @threading.thread decorator is used to specify that a function should be run in a separate thread.
 
 * Overall, decorators are a powerful tool for extending the functionality of functions and classes in a clean and concise manner. They can be used in a wide variety of contexts, from web development to concurrent programming, and are an essential part of any Python programmer's toolkit.
+
+
+## How to Contribute
+
+To contribute to the project, follow these steps:
+
+* Fork the repository on GitHub.
+* Clone the repository to your local machine.
+* Create a new branch for your changes.
+* Make your changes and commit them to your branch.
+* Push your changes to your fork on GitHub.
+* Create a pull request to merge your changes into the master branch of the main repository.
+
+Before submitting your pull request, please make sure to:
+
+* Test your code thoroughly to ensure it is correct and does not break any existing functionality.
+* Write clear and concise documentation for your decorator, including examples of how to use it.
+* Follow the style and formatting guidelines of the project.
+
+We will review your pull request and provide feedback if necessary. If the pull request is accepted, it will be merged into the main repository and included in the next release.
+
+Thank you for considering contributing to this project!
+
