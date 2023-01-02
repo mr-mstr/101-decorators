@@ -103,7 +103,7 @@ These decorators are applied to classes and can modify their behavior or add add
         
 
 ### Property Decorators: 
-These decorators are applied to properties of a class and can modify how the property is accessed or set. Examples include `@cached_property` to cache the results of a property getter for improved performance, or @restricted to restrict access to the property.
+These decorators are applied to properties of a class and can modify how the property is accessed or set. Examples include `@cached_property` to cache the results of a property getter for improved performance, or `@restricted` to restrict access to the property.
 - Here is an example of a property decorator that logs a message when the property is accessed:
             
        def log_access(method):
